@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 99%;
+    --foreground: 150 30% 17%;
+    --card: 0 0% 100%;
+    --card-foreground: 150 30% 17%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 30% 17%;
+    --primary: 153 30% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 44 50% 91%;
+    --secondary-foreground: 150 30% 17%;
+    --muted: 44 50% 91%;
+    --muted-foreground: 215 14% 34%;
+    --accent: 14 68% 62%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 20% 89%;
+    --input: 214 20% 89%;
+    --ring: 153 30% 60%;
+    --radius: 1rem;
+    --chart-1: 14 68% 62%;
+    --chart-2: 153 30% 60%;
+    --chart-3: 44 50% 91%;
+    --chart-4: 215 14% 34%;
+    --chart-5: 150 30% 17%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Manrope', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+@layer base {
+  [data-debug-wrapper="true"] {
+    display: contents !important;
+  }
+  [data-debug-wrapper="true"] > * {
+    margin-left: inherit;
+    margin-right: inherit;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    padding-left: inherit;
+    padding-right: inherit;
+    padding-top: inherit;
+    padding-bottom: inherit;
+    column-gap: inherit;
+    row-gap: inherit;
+    gap: inherit;
+    border-left-width: inherit;
+    border-right-width: inherit;
+    border-top-width: inherit;
+    border-bottom-width: inherit;
+  }
+}

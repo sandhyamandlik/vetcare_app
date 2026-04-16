@@ -1,0 +1,114 @@
+/* Veterinary Consultation Platform - Custom Styles */
+
+/* Glassmorphism nav */
+.nav-glass {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.82);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+/* Hero overlay */
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(30, 57, 42, 0.75) 0%, rgba(129, 178, 154, 0.45) 100%);
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(30, 57, 42, 0.1);
+}
+
+/* Star rating */
+.star-btn {
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+.star-btn:hover {
+  transform: scale(1.2);
+}
+.star-active {
+  color: #E07A5F;
+}
+.star-inactive {
+  color: #E2E8F0;
+}
+
+/* Badge styles */
+.badge-pending {
+  background: rgba(221, 107, 32, 0.1);
+  color: #DD6B20;
+}
+.badge-accepted {
+  background: rgba(56, 161, 105, 0.1);
+  color: #38A169;
+}
+.badge-rejected {
+  background: rgba(229, 62, 62, 0.1);
+  color: #E53E3E;
+}
+
+/* Staggered entrance animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+
+/* Image preview */
+.img-preview {
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F1DE;
+}
+::-webkit-scrollbar-thumb {
+  background: #81B29A;
+  border-radius: 3px;
+}
+
+/* Section spacing */
+.section-padding {
+  padding: 5rem 0;
+}
+
+/* WhatsApp green */
+.btn-whatsapp {
+  background: #25D366;
+  color: white;
+}
+.btn-whatsapp:hover {
+  background: #1FAD54;
+}
+
+/* Phone blue */
+.btn-phone {
+  background: #3182CE;
+  color: white;
+}
+.btn-phone:hover {
+  background: #2B6CB0;
+}

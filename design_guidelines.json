@@ -1,0 +1,81 @@
+{
+  "theme": "Light",
+  "archetype": "1 (Organic & Earthy)",
+  "design_philosophy": "Modern, professional veterinary platform combining clinical trust with warm, empathetic pet-care vibes. Uses an Organic & Earthy palette to avoid the cold 'hospital' feel, favoring soft sage greens, warm sand, and terracotta accents for friendly call-to-actions. The UI is clean, spacious, and relies on high-quality pet/doctor imagery with rounded, soft geometric shapes.",
+  "typography": {
+    "primary_font": "Outfit",
+    "primary_font_fallback": "sans-serif",
+    "secondary_font": "Manrope",
+    "secondary_font_fallback": "sans-serif",
+    "heading_strategy": "Outfit (font-weight: 700 for H1/H2, tracking-tight). Avoid generic Inter. Use fluid typography scales.",
+    "body_strategy": "Manrope (font-weight: 400, leading-relaxed, text-base).",
+    "sizes": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tighter text-[#1E392A]",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight text-[#1E392A]",
+      "h3": "text-xl sm:text-2xl text-[#1E392A]",
+      "body": "text-base text-[#4A5568]",
+      "small": "text-sm text-[#718096] uppercase tracking-[0.2em]"
+    }
+  },
+  "colors": {
+    "background_base": "#FDFDFC",
+    "background_alt": "#F4F1DE",
+    "surface_cards": "#FFFFFF",
+    "primary_brand": "#81B29A",
+    "primary_cta": "#E07A5F",
+    "primary_cta_hover": "#D56A4F",
+    "text_main": "#1E392A",
+    "text_muted": "#4A5568",
+    "border_subtle": "#E2E8F0",
+    "success": "#38A169",
+    "warning": "#DD6B20",
+    "error": "#E53E3E"
+  },
+  "spacing_and_layout": {
+    "global_padding": "Generous spacing. Sections should have py-20 or py-24. Containers use max-w-7xl mx-auto px-6 lg:px-8.",
+    "cards": "Padding p-6 or p-8 to prevent text collision. Use rounded-2xl or rounded-3xl for a softer, organic feel.",
+    "home_hero": "Bento Grid 'Tetris' style or asymmetrical split layout. Overlay opacity max bg-black/30 or bg-white/40.",
+    "dashboards": "'Control Room' grid. Base grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 with gap-6."
+  },
+  "components_strategy": {
+    "navigation": "Sticky glassmorphism header: backdrop-blur-xl bg-white/80, 1px bottom border border-border/40. Must contain Logo, Links, CTA.",
+    "buttons": "Rounded-full or rounded-xl. Primary CTA: bg-[#E07A5F] text-white hover:bg-[#D56A4F] hover:-translate-y-0.5 transition-transform duration-200. Secondary: bg-[#F4F1DE] text-[#1E392A] hover:bg-[#EAE5C9].",
+    "cards": "Surface strategy: 'Neumorphism / Tactile' mix but cleaner. Flat white bg, 1px border-border, subtle shadow-sm. Hover: shadow-md -translate-y-1 transition-all duration-300.",
+    "inputs_forms": "Rounded-xl, border-[#E2E8F0] focus:ring-2 focus:ring-[#81B29A] focus:border-transparent. Generous padding (p-3).",
+    "badges": "For Specializations: bg-[#81B29A]/10 text-[#2C4A3B] px-3 py-1 rounded-full text-xs font-semibold.",
+    "contact_buttons": "WhatsApp: bg-[#25D366] text-white. Phone: bg-[#3182CE] text-white."
+  },
+  "media": {
+    "hero_image": "https://images.pexels.com/photos/6235124/pexels-photo-6235124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "doctors": [
+      {
+        "url": "https://images.unsplash.com/photo-1622253694238-3b22139576c6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjB2ZXRlcmluYXJpYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzU5NzA0NTN8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Dr. Smith - Senior Veterinarian"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1736289173074-df6009da27c9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjB2ZXRlcmluYXJpYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzU5NzA0NTN8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Dr. Sarah - Feline Specialist"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1756699197173-5ef672a423fa?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB2ZXRlcmluYXJpYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzU5NzA0NTN8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Dr. Emily - General Practice"
+      }
+    ],
+    "pet_placeholder": "https://images.unsplash.com/photo-1644675272883-0c4d582528d8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDZ8MHwxfHNlYXJjaHwyfHx2ZXRlcmluYXJpYW4lMjB3aXRoJTIwZG9nfGVufDB8fHx8MTc3NTk3MDQ1M3ww&ixlib=rb-4.1.0&q=85",
+    "logo_concept": "Text-based logo using Outfit font, dark green text with a subtle terracotta paw print icon next to it."
+  },
+  "interactions": {
+    "hover_states": "All buttons and cards must have explicitly defined hover states. Buttons: slight scale down active state (active:scale-95), background darken. Cards: subtle upward shift and shadow increase.",
+    "animations": "Use simple CSS transitions. transition-all duration-300 ease-in-out.",
+    "testing": "Ensure all actionable items have data-testid attributes (e.g., data-testid='book-consultation-btn')."
+  },
+  "specific_instructions_to_main_agent": [
+    "If the implementation uses HTML/Vanilla JS as per problem statement, use Tailwind CSS utility classes directly. If using React as per system environment, use shadcn/ui but heavily customize the radius to rounded-2xl and colors to match the guidelines.",
+    "Ensure both User and Doctor dashboards have clear, accessible navigation (sidebar or top nav with active states).",
+    "For the Doctor Contact feature, render separate clear buttons for Phone and WhatsApp with standard icons (lucide-react or phosphor if React, otherwise FontAwesome/Heroicons via CDN).",
+    "Pet image uploads should show a preview of the image using the provided pet_placeholder if none is uploaded.",
+    "Feedback system should use star SVGs for ratings. Active stars in Terracotta (#E07A5F), inactive in Gray.",
+    "Build the UI without the default 'Bootstrap' look. Emphasize organic spacing (p-6, p-8) and soft border-radii (rounded-2xl).",
+    "Do NOT use HTML-based components for advanced user interactions; if using vanilla, create clean custom modals with Tailwind."
+  ]
+}
