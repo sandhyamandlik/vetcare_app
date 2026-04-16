@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect, useCallback } from 'rea
 import axios from 'axios';
 
 const AuthContext = createContext(null);
-const API = `http://localhost:8000/api`;
+const API = `https://vetcare-app-2nqr.onrender.com/api`;
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
