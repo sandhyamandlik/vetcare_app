@@ -748,8 +748,8 @@ async def startup_event():
         logger.info("Seeded test user")
 
     # Write test credentials
-    creds_path = Path("/app/memory/test_credentials.md")
-    creds_path.parent.mkdir(exist_ok=True)
+    creds_path = ROOT_DIR / "memory" / "test_credentials.md"
+    creds_path.parent.mkdir(parents=True, exist_ok=True)
     creds_path.write_text(
         "# Test Credentials\n\n"
         "## Test User\n- Email: testuser@example.com\n- Password: user123\n- Role: user\n\n"
