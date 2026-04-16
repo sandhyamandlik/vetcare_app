@@ -13,8 +13,8 @@ import {
 } from 'lucide-react';
 import axios from 'axios';
 
-const BACKEND_URL = 'http://localhost:8000';
-const API = 'http://localhost:8000/api';
+const BACKEND_URL = 'https://vetcare-app-2nqr.onrender.com';
+const API = 'https://vetcare-app-2nqr.onrender.com/api';
 
 export default function PrescriptionHistoryPage() {
   const { user, token, loading: authLoading } = useAuth();
