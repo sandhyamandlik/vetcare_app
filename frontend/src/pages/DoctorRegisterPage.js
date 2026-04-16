@@ -8,8 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { PawPrint, Eye, EyeOff, Upload, X } from 'lucide-react';
 import axios from 'axios';
 
-const BACKEND_URL = 'http://localhost:8000';
-const API = 'http://localhost:8000/api';
+const BACKEND_URL = 'https://vetcare-app-2nqr.onrender.com';
+const API = 'https://vetcare-app-2nqr.onrender.com/api';
 
 const SPECIALIZATIONS = [
   'Small Animal Surgery',
