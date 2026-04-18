@@ -11,10 +11,12 @@ const BACKEND_URL = 'https://vetcare-app-2nqr.onrender.com';
 const API = 'https://vetcare-app-2nqr.onrender.com/api';
 
 const resolveImg = (url) => {
-  if (!url) {
+  if (!url || url === "null") {
     return "https://via.placeholder.com/400x400?text=Doctor";
   }
+
   if (url.startsWith("http")) return url;
+
   return `${BACKEND_URL}${url}`;
 };
 
