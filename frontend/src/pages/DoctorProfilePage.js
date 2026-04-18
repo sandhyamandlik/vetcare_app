@@ -80,7 +80,7 @@ export default function DoctorProfilePage() {
                 className="h-32 w-32 rounded-2xl object-cover border-4 border-white shadow-lg"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = "https://via.placeholder.com/400x400?text=Doctor";
+                  e.target.src = "https://via.placeholder.com/400x400?text=FIXED";;
                 }}
               />
             </div>
