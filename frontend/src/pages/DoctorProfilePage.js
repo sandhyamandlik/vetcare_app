@@ -78,7 +78,10 @@ export default function DoctorProfilePage() {
                 src={resolveImg(doctor.profile_image)}
                 alt={doctor.name}
                 className="h-32 w-32 rounded-2xl object-cover border-4 border-white shadow-lg"
-                onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1644675272883-0c4d582528d8?w=400&h=400&fit=crop'; }}
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "https://via.placeholder.com/400x400?text=Doctor";
+                }}
               />
             </div>
           </div>
