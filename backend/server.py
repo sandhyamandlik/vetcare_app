@@ -264,8 +264,8 @@ async def register_doctor(data: DoctorRegister):
         "experience": data.experience,
         "cases_solved": data.cases_solved,
         "phone": data.phone,
-        "profile_image": data.profile_image if data.profile_image and data.profile_image.strip() != "" 
-        else "https://images.unsplash.com/photo-1644675272883-0c4d582528d8?w=400&h=400&fit=crop",
+        "profile_image": data.profile_image.strip() if data.profile_image and data.profile_image.strip() != "" 
+         else None,
         "role": "doctor",
         "created_at": datetime.now(timezone.utc).isoformat()
     }
