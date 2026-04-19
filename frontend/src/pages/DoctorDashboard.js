@@ -21,7 +21,7 @@ const BACKEND_URL = 'https://vetcare-app-2nqr.onrender.com';
 const API = 'https://vetcare-app-2nqr.onrender.com/api';
 
 const resolveImg = (url) => {
-  if (!url || url.startsWith("/api/uploads")) {
+  if (!url) {
     return "https://via.placeholder.com/400x400?text=Doctor";
   }
 
