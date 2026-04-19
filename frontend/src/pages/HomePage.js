@@ -31,6 +31,7 @@ function StarRating({ rating }) {
 }
 
 function DoctorCard({ doctor, index }) {
+  console.log("Image URL:", doctor.profile_image);
   return (
     <div
       className={`card-hover bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden animate-fade-in-up delay-${(index % 4) * 100 + 100}`}
