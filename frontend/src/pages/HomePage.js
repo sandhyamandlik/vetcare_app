@@ -14,15 +14,7 @@ const resolveImg = (url) => {
   if (!url) {
     return "https://dummyimage.com/400x400/cccccc/000000&text=Doctor";
   }
-
-  if (url.startsWith("http")) return url;
-
-  // ✅ FIX: always use /api/uploads
-  if (url.startsWith("/uploads")) {
-    return `${BACKEND_URL}/api${url}`;
-  }
-
-  return `${BACKEND_URL}${url}`;
+  return url; // direct Cloudinary URL
 };
 
 function StarRating({ rating }) {
