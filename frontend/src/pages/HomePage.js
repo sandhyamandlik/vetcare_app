@@ -15,11 +15,14 @@ const resolveImg = (url) => {
     return "https://dummyimage.com/400x400/cccccc/000000&text=Doctor";
   }
 
-  // If already full URL → return
   if (url.startsWith("http")) return url;
 
-  // FIX: ensure proper slash handling
-  return `${BACKEND_URL}/${url.replace(/^\/+/, "")}`;
+  // ✅ FIX: always use /api/uploads
+  if (url.startsWith("/uploads")) {
+    return `${BACKEND_URL}/api${url}`;
+  }
+
+  return `${BACKEND_URL}${url}`;
 };
 
 function StarRating({ rating }) {
