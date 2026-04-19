@@ -60,7 +60,11 @@ export default function DoctorRegisterPage() {
       if (imageFile) {
         const formData = new FormData();
         formData.append('file', imageFile);
-        const uploadRes = await axios.post(`${API}/upload`, formData);
+        const uploadRes = await axios.post(`${API}/upload`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
         profileImageUrl = uploadRes.data.url;
       }
       await doctorRegister({
