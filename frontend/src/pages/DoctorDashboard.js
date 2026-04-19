@@ -311,7 +311,15 @@ export default function DoctorDashboard() {
             <div className="bg-white rounded-2xl border border-[#E2E8F0] p-8">
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 <div className="flex-shrink-0">
-                  <img src={resolveImg(user.profile_image)} alt={user.name} className="h-32 w-32 rounded-2xl object-cover border-2 border-[#81B29A]" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1644675272883-0c4d582528d8?w=400&h=400&fit=crop'; }} />
+                  <img 
+                    src={resolveImg(user.profile_image)} 
+                    alt={user.name} 
+                    className="h-32 w-32 rounded-2xl object-cover border-2 border-[#81B29A]" 
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = "https://via.placeholder.com/400x400?text=Doctor";
+                    }} 
+                  />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-start justify-between mb-4">
