@@ -8,6 +8,7 @@ from fastapi import FastAPI, APIRouter, HTTPException, Request, UploadFile, File
 from fastapi.responses import FileResponse
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
+from fastapi.staticfiles import StaticFiles
 import os
 import logging
 import uuid
@@ -36,6 +37,7 @@ UPLOAD_DIR = ROOT_DIR / "uploads"
 UPLOAD_DIR.mkdir(exist_ok=True)
 
 app = FastAPI()
+app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 api_router = APIRouter(prefix="/api")
 
 # ===================== AUTH HELPERS =====================
