@@ -661,14 +661,14 @@ async def dismiss_all_reminders(request: Request):
 
 @api_router.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
-    if not file.content_type or not file.content_type.startswith("image/"):
-        raise HTTPException(status_code=400, detail="Only image files are allowed")
-    ext = file.filename.split(".")[-1] if file.filename and "." in file.filename else "jpg"
-    filename = f"{uuid.uuid4()}.{ext}"
-    file_path = UPLOAD_DIR / filename
-    with open(file_path, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
-    return {"filename": filename, "url": f"/uploads/{filename}"}
+    if not file.content_type.startswith("image/"):
+        raise HTTPException(status_code=400, detail="Only images allowed")
+
+    result = cloudinary.uploader.upload(file.file)
+
+    return {
+        "url": result["secure_url"]
+    }
 
 @api_router.get("/uploads/{filename}")
 async def get_upload(filename: str):
