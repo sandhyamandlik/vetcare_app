@@ -15,9 +15,11 @@ const resolveImg = (url) => {
     return "https://dummyimage.com/400x400/cccccc/000000&text=Doctor";
   }
 
+  // If already full URL → return
   if (url.startsWith("http")) return url;
 
-  return `${BACKEND_URL}${url}`;
+  // FIX: ensure proper slash handling
+  return `${BACKEND_URL}/${url.replace(/^\/+/, "")}`;
 };
 
 function StarRating({ rating }) {
@@ -44,7 +46,7 @@ function DoctorCard({ doctor, index }) {
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
           onError={(e) => {
           e.target.onerror = null;
-          e.target.src = "https://via.placeholder.com/400x400?text=Doctor";
+          e.target.src = "https://dummyimage.com/400x400/cccccc/000000&text=Doctor";
         }}
         />
       </div>
