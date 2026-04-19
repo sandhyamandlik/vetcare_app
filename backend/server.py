@@ -658,7 +658,7 @@ async def upload_file(file: UploadFile = File(...)):
     file_path = UPLOAD_DIR / filename
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
-    return {"filename": filename, "url": f"/api/uploads/{filename}"}
+    return {"filename": filename, "url": f"/uploads/{filename}"}
 
 @api_router.get("/uploads/{filename}")
 async def get_upload(filename: str):
