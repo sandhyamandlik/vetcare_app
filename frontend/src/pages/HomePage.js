@@ -12,7 +12,7 @@ const API = 'https://vetcare-app-2nqr.onrender.com/api';
 
 const resolveImg = (url) => {
   if (!url) {
-    return "https://via.placeholder.com/400x400?text=Doctor";
+    return "https://dummyimage.com/400x400/cccccc/000000&text=Doctor";
   }
 
   if (url.startsWith("http")) return url;
@@ -31,7 +31,7 @@ function StarRating({ rating }) {
 }
 
 function DoctorCard({ doctor, index }) {
-  console.log("Image URL:", doctor.profile_image);
+  console.log("Doctor Image:", doctor.profile_image);
   return (
     <div
       className={`card-hover bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden animate-fade-in-up delay-${(index % 4) * 100 + 100}`}
