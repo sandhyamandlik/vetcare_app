@@ -1,3 +1,4 @@
+import os
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -6,6 +7,7 @@ cloudinary.config(
     cloud_name=os.environ.get("Root"),
     api_key=os.environ.get("653526571472418"),
     api_secret=os.environ.get("TXlCSORXN6crF6vv9t4J50tVMpo")
+    secure=True
 )
 
 from dotenv import load_dotenv
@@ -19,7 +21,6 @@ from fastapi.responses import FileResponse
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 from fastapi.staticfiles import StaticFiles
-import os
 import logging
 import uuid
 import asyncio
