@@ -10,12 +10,6 @@ cloudinary.config(
     secure=True
 )
 
-from dotenv import load_dotenv
-from pathlib import Path
-
-ROOT_DIR = Path(__file__).parent
-load_dotenv(ROOT_DIR / '.env')
-
 from fastapi import FastAPI, APIRouter, HTTPException, Request, UploadFile, File
 from fastapi.responses import FileResponse
 from starlette.middleware.cors import CORSMiddleware
@@ -37,6 +31,12 @@ from email.mime.multipart import MIMEMultipart
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
+from dotenv import load_dotenv
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).parent
+load_dotenv(ROOT_DIR / '.env')
+
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
@@ -48,6 +48,16 @@ UPLOAD_DIR = ROOT_DIR / "uploads"
 UPLOAD_DIR.mkdir(exist_ok=True)
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://vetcare-app-rho.vercel.app",
+        "http://localhost:3000"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 api_router = APIRouter(prefix="/api")
 
@@ -665,7 +675,7 @@ async def upload_file(file: UploadFile = File(...)):
     if not file.content_type.startswith("image/"):
         raise HTTPException(status_code=400, detail="Only images allowed")
 
-    result = cloudinary.uploader.upload(file.file)
+    result = cloudinary.uploader.upload(file.file, folder="vetcare")
 
     return {
         "url": result["secure_url"]
@@ -781,13 +791,6 @@ async def startup_event():
 
 app.include_router(api_router)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_credentials=True,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 @app.on_event("shutdown")
 async def shutdown_db_client():
