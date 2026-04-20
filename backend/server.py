@@ -677,8 +677,15 @@ async def dismiss_all_reminders(request: Request):
 @api_router.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
     try:
+        if not file:
+            raise HTTPException(status_code=400, detail="No file uploaded")
+
         if not file.content_type.startswith("image/"):
             raise HTTPException(status_code=400, detail="Only images allowed")
+
+        # Debug logs
+        print("Cloudinary Config Check:")
+        print(os.getenv("CLOUDINARY_CLOUD_NAME"))
 
         result = cloudinary.uploader.upload(file.file, folder="vetcare")
 
@@ -687,8 +694,8 @@ async def upload_file(file: UploadFile = File(...)):
         }
 
     except Exception as e:
-        print("UPLOAD ERROR:", e)
-        raise HTTPException(status_code=500, detail="Upload failed")
+        print("🔥 UPLOAD ERROR:", str(e))
+        raise HTTPException(status_code=500, detail=str(e))
 
 @api_router.get("/uploads/{filename}")
 async def get_upload(filename: str):
