@@ -1,4 +1,10 @@
+from dotenv import load_dotenv
+from pathlib import Path
 import os
+
+ROOT_DIR = Path(__file__).parent
+load_dotenv(ROOT_DIR / '.env')
+
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -31,12 +37,6 @@ from email.mime.multipart import MIMEMultipart
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-from dotenv import load_dotenv
-from pathlib import Path
-
-ROOT_DIR = Path(__file__).parent
-load_dotenv(ROOT_DIR / '.env')
-
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
@@ -48,12 +48,16 @@ UPLOAD_DIR = ROOT_DIR / "uploads"
 UPLOAD_DIR.mkdir(exist_ok=True)
 
 app = FastAPI()
+
+origins = [
+    "https://vetcare-app-rho.vercel.app",
+    "http://localhost:3000",
+    "http://localhost:5173"
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://vetcare-app-rho.vercel.app",
-        "http://localhost:3000"
-    ],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -672,14 +676,19 @@ async def dismiss_all_reminders(request: Request):
 
 @api_router.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
-    if not file.content_type.startswith("image/"):
-        raise HTTPException(status_code=400, detail="Only images allowed")
+    try:
+        if not file.content_type.startswith("image/"):
+            raise HTTPException(status_code=400, detail="Only images allowed")
 
-    result = cloudinary.uploader.upload(file.file, folder="vetcare")
+        result = cloudinary.uploader.upload(file.file, folder="vetcare")
 
-    return {
-        "url": result["secure_url"]
-    }
+        return {
+            "url": result.get("secure_url")
+        }
+
+    except Exception as e:
+        print("UPLOAD ERROR:", e)
+        raise HTTPException(status_code=500, detail="Upload failed")
 
 @api_router.get("/uploads/{filename}")
 async def get_upload(filename: str):
